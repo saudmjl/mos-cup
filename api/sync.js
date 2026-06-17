@@ -68,6 +68,7 @@ export default async function handler(req, res) {
 
     for (const m of data.matches) {
       const id = idCounter++;
+      if (m.round === "Matchday 1") continue;   // الجولة الأولى محذوفة دائماً (لا تُزامَن)
       const score = m.score?.ft;
       const e = ex[id];
       const row = {
