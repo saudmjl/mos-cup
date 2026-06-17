@@ -1,4 +1,4 @@
-// Service Worker — إشعارات قروب موس
+// Service Worker — إشعارات MoS Cup
 self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (e) => e.waitUntil(self.clients.claim()));
 
@@ -6,7 +6,7 @@ self.addEventListener("push", (event) => {
   let data = {};
   try { data = event.data ? event.data.json() : {}; }
   catch (e) { data = { body: event.data ? event.data.text() : "" }; }
-  const title = data.title || "قروب موس";
+  const title = data.title || "MoS Cup";
   const options = {
     body: data.body || "لا تنسَ توقّعك ⚽",
     icon: "/icon-192.png",
