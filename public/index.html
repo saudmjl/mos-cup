@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0f0d" />
+<title>قروب موس — توقعات كأس العالم 2026</title>
+<!-- PWA / تطبيق الآيفون -->
+<link rel="manifest" href="/manifest.json" />
+<link rel="apple-touch-icon" href="/icon-180.png" />
+<link rel="icon" type="image/png" href="/icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="قروب موس" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script src="/shared.js"></script>
+<style>
+  :root{
+    --bg:#0a0f0d; --panel:#101814; --panel-2:#13201a;
+    --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
+    --txt:#eaf2ee; --muted:#8ba093;
+    --pitch:#0e9f5a; --pitch-deep:#0a7d46;
+    --gold:#f5c542; --gold-deep:#caa024;
+    --red:#e5484d; --blue:#4a7dff;
+    --radius:18px; --shadow:0 18px 50px -20px rgba(0,0,0,.7);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Tajawal',system-ui,sans-serif;background:
+      radial-gradient(1100px 600px at 80% -10%, rgba(14,159,90,.18), transparent 60%),
+      radial-gradient(900px 500px at 10% 110%, rgba(245,197,66,.08), transparent 55%),
+      var(--bg);color:var(--txt);min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 16px 90px}
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,15,13,.8);border-bottom:1px solid var(--line)}
+  .nav{max-width:720px;margin:0 auto;padding:13px 16px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.02rem}
+  .brand .ball{width:28px;height:28px;border-radius:50%;background:conic-gradient(#fff 0 25%,#0a0f0d 0 50%,#fff 0 75%,#0a0f0d 0);background-size:50% 50%;box-shadow:0 0 0 2px var(--pitch);flex:none}
+  .who{font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .who b{color:var(--txt)}
+  .logout{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:4px 10px;font-family:inherit;font-size:.75rem;cursor:pointer}
+
+  .tabs{display:flex;gap:8px;margin:14px 0 18px;background:rgba(16,24,20,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:14px;padding:5px;position:sticky;top:52px;z-index:40;transition:box-shadow .2s,border-color .2s}
+  .tabs.stuck{box-shadow:0 12px 26px -16px rgba(0,0,0,.75);border-color:var(--line-strong)}
+  .tab{flex:1;text-align:center;padding:10px;border-radius:10px;font-family:inherit;font-weight:800;font-size:.9rem;color:var(--muted);background:none;border:none;cursor:pointer;transition:.15s}
+  .tab.on{background:linear-gradient(180deg,rgba(14,159,90,.25),rgba(14,159,90,.12));color:#fff}
+
+  .day-group{margin-bottom:26px}
+  .day-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+  .day-head h3{font-size:1.1rem;font-weight:900}
+  .day-head .dh-meta{font-size:.78rem;color:var(--muted)}
+  .dbl-hint{font-size:.78rem;color:var(--gold);margin-bottom:12px}
+  .mini-count{font-size:.66rem;color:var(--muted);text-align:center;margin:-2px 0 8px}
+
+  .card{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:15px;margin-bottom:12px;box-shadow:var(--shadow);position:relative}
+  .card.isdbl{border-color:var(--gold-deep);box-shadow:0 0 0 1px rgba(245,197,66,.25),var(--shadow)}
+  .card.locked{opacity:.92}
+  .card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .stage{font-size:.72rem;color:var(--muted);font-weight:700}
+  .kick{font-size:.72rem;color:var(--pitch);font-weight:700;display:flex;align-items:center;gap:5px}
+  .kick::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pitch)}
+  .locked .kick{color:var(--muted)} .locked .kick::before{background:var(--muted)}
+  .badge-dbl{position:absolute;top:-9px;right:15px;background:linear-gradient(180deg,var(--gold),var(--gold-deep));color:#231c00;font-weight:900;font-size:.66rem;padding:3px 10px;border-radius:999px}
+  .badge-pts{position:absolute;top:-9px;left:15px;background:var(--pitch-deep);color:#fff;font-weight:900;font-size:.66rem;padding:3px 10px;border-radius:999px}
+
+  .teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin-bottom:10px}
+  .team{display:flex;flex-direction:column;align-items:center;gap:5px}
+  .flag{font-size:1.9rem;line-height:1}
+  .tname{font-weight:700;font-size:.85rem;text-align:center}
+  .score-in{display:flex;align-items:center;gap:8px}
+  .num{width:44px;height:50px;border:1px solid var(--line-strong);background:rgba(255,255,255,.03);border-radius:11px;color:var(--txt);font-family:'Rubik';font-weight:900;font-size:1.4rem;text-align:center;-moz-appearance:textfield}
+  .num::-webkit-outer-spin-button,.num::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .num:focus{outline:none;border-color:var(--pitch);background:rgba(14,159,90,.08)}
+  .num:disabled{opacity:.6}
+  .dash{color:var(--muted);font-weight:900}
+  .final{font-size:.72rem;color:var(--muted);text-align:center;margin-bottom:8px}
+  .final b{color:var(--txt)}
+
+  .actions{display:flex;gap:9px;margin-top:12px}
+  .save{flex:1;border:1px solid var(--pitch);background:linear-gradient(180deg,rgba(14,159,90,.22),rgba(14,159,90,.1));color:#eafff4;font-family:inherit;font-weight:800;font-size:.88rem;border-radius:11px;padding:10px;cursor:pointer}
+  .save.done{border-color:var(--line-strong);background:rgba(255,255,255,.04);color:var(--muted)}
+  .dbl-btn{border:1px solid var(--gold-deep);background:rgba(245,197,66,.07);color:var(--gold);font-family:inherit;font-weight:800;font-size:.82rem;border-radius:11px;padding:10px 14px;cursor:pointer;white-space:nowrap}
+  .dbl-btn.on{background:linear-gradient(180deg,var(--gold),var(--gold-deep));color:#231c00;border-color:var(--gold)}
+  .actions button:disabled{opacity:.45;cursor:not-allowed}
+
+  .board{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .row{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:12px;padding:13px 15px;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .row.me{background:rgba(74,125,255,.08)}
+  .rank{font-weight:900;color:var(--muted);text-align:center}
+  .row:nth-child(1) .rank{color:var(--gold)}
+  .player{display:flex;align-items:center;gap:10px;font-weight:700}
+  .ava{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:900;color:#0a0f0d;flex:none;background:var(--pitch)}
+  .me-tag{font-size:.64rem;color:var(--blue);border:1px solid rgba(74,125,255,.4);border-radius:999px;padding:2px 7px}
+  .score{font-weight:900;font-size:1.05rem}
+  .score small{color:var(--muted);font-weight:500;font-size:.7rem}
+
+  .empty{text-align:center;color:var(--muted);padding:40px 20px}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--pitch-deep);color:#fff;font-weight:700;padding:12px 22px;border-radius:999px;box-shadow:0 14px 30px -10px rgba(0,0,0,.6);transition:transform .35s cubic-bezier(.2,.8,.2,1);z-index:99;max-width:88vw;text-align:center}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+  .toast.err{background:var(--red)}
+
+  /* Login */
+  .login{max-width:420px;margin:8vh auto 0;padding:0 18px}
+  .login .logo{text-align:center;margin-bottom:24px}
+  .login .logo .big{font-size:3rem}
+  .login h1{font-family:'Rubik','Tajawal';font-weight:900;font-size:1.6rem;text-align:center;margin-bottom:4px}
+  .login .tagline{text-align:center;color:var(--muted);margin-bottom:24px;font-size:.92rem}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+  .seg{display:flex;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:18px}
+  .seg button{flex:1;padding:9px;border:none;background:none;color:var(--muted);font-family:inherit;font-weight:800;border-radius:9px;cursor:pointer;font-size:.88rem}
+  .seg button.on{background:var(--pitch-deep);color:#fff}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:6px;font-weight:700}
+  .field input{width:100%;border:1px solid var(--line-strong);background:rgba(255,255,255,.03);border-radius:11px;color:var(--txt);font-family:inherit;font-size:1rem;padding:12px 14px}
+  .field input:focus{outline:none;border-color:var(--pitch)}
+  .gp-row{display:none}
+  .gp-row.show{display:block}
+  .submit{width:100%;border:none;background:linear-gradient(180deg,var(--gold),var(--gold-deep));color:#231c00;font-family:inherit;font-weight:900;font-size:1rem;padding:13px;border-radius:12px;cursor:pointer;margin-top:6px}
+  .err-msg{color:var(--red);font-size:.84rem;text-align:center;margin-top:12px;min-height:18px}
+  .loading{text-align:center;color:var(--muted);padding:60px 20px}
+  .spin{display:inline-block;width:26px;height:26px;border:3px solid var(--line-strong);border-top-color:var(--pitch);border-radius:50%;animation:sp 1s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}}
+
+  /* منتقي الجولات */
+  .rounds{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;margin-bottom:6px;-webkit-overflow-scrolling:touch}
+  .rounds::-webkit-scrollbar{height:0}
+  .round-btn{flex:none;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);font-family:inherit;font-weight:800;font-size:.82rem;cursor:pointer;white-space:nowrap}
+  .round-btn.on{background:linear-gradient(180deg,var(--pitch),var(--pitch-deep));color:#fff;border-color:var(--pitch)}
+  .round-nav{display:flex;justify-content:space-between;gap:10px;margin:4px 0 16px}
+  .round-nav button{flex:1;padding:10px;border-radius:11px;border:1px solid var(--line-strong);background:rgba(255,255,255,.03);color:var(--txt);font-family:inherit;font-weight:800;font-size:.85rem;cursor:pointer}
+  .round-nav button:disabled{opacity:.35;cursor:not-allowed}
+
+  /* الإحصائيات */
+  .stat-head{display:grid;grid-template-columns:34px 1fr auto auto;gap:12px;padding:11px 15px;color:var(--muted);font-size:.74rem;font-weight:800;border-bottom:1px solid var(--line)}
+  .stat-row{display:grid;grid-template-columns:34px 1fr auto auto;align-items:center;gap:12px;padding:13px 15px;border-bottom:1px solid var(--line)}
+  .stat-row:last-child{border-bottom:none}
+  .stat-row.me{background:rgba(74,125,255,.08)}
+  .stat-num{font-weight:900;font-size:1.05rem;text-align:center;min-width:46px}
+  .stat-num small{display:block;color:var(--muted);font-weight:600;font-size:.6rem}
+  .stat-exact{color:var(--gold)}
+  .stat-outcome{color:var(--pitch)}
+
+  /* التعليمات */
+  .howto{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-top:16px;font-size:.86rem;color:var(--muted);line-height:1.9}
+  .howto h3{color:var(--txt);font-size:.98rem;margin-bottom:8px}
+  .howto b{color:var(--txt)}
+  .pts-pill{display:inline-block;background:var(--pitch-deep);color:#fff;border-radius:8px;padding:1px 8px;font-weight:800;font-size:.8rem;margin:0 2px}
+  .pts-pill.gold{background:var(--gold-deep);color:#231c00}
+  .howto-app{margin:0 0 18px}
+
+  /* بطاقات الكشف */
+  .rv-card{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:14px;margin-bottom:14px;box-shadow:var(--shadow)}
+  .rv-head{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:2px}
+  .rv-team{font-weight:800;font-size:.92rem}
+  .rv-flag{font-size:1.3rem;vertical-align:-3px}
+  .rv-score{font-family:'Rubik';font-weight:900;font-size:1.5rem;letter-spacing:1px}
+  .rv-score.pending{color:var(--muted);font-size:1.2rem;letter-spacing:2px}
+  .rv-meta{text-align:center;font-size:.72rem;color:var(--muted);margin-bottom:12px}
+  .rv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px}
+  .rv-p{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.03);border-radius:10px;padding:7px 11px}
+  .rv-p .nm{flex:1;font-size:.82rem}
+  .rv-p .sc{font-weight:800;font-size:.9rem;font-family:'Rubik'}
+  .rv-p .pt{font-size:.68rem;font-weight:800;min-width:28px;text-align:left;color:var(--muted)}
+  .rv-p.exact{background:rgba(14,159,90,.15)} .rv-p.exact .nm,.rv-p.exact .sc,.rv-p.exact .pt{color:var(--pitch)}
+  .rv-p.dbl{background:rgba(245,197,66,.1)} .rv-p.dbl .nm,.rv-p.dbl .sc,.rv-p.dbl .pt{color:var(--gold)}
+  .rv-p.miss{opacity:.5}
+
+  /* العدّاد التنازلي */
+  .countdown{display:flex;align-items:center;justify-content:center;gap:6px;margin:2px 0 4px;font-family:'Rubik',monospace;font-weight:700;font-size:.82rem;color:var(--pitch);background:rgba(14,159,90,.08);border:1px solid rgba(14,159,90,.2);border-radius:10px;padding:6px 10px}
+  .countdown.soon{color:var(--gold);background:rgba(245,197,66,.08);border-color:rgba(245,197,66,.28)}
+  .countdown.live{color:var(--red);background:rgba(229,72,77,.1);border-color:rgba(229,72,77,.3)}
+  .countdown .cd-seg{display:inline-flex;flex-direction:column;align-items:center;min-width:30px}
+  .countdown .cd-seg b{font-size:1rem;line-height:1.1}
+  .countdown .cd-seg span{font-size:.6rem;color:var(--muted);font-weight:600}
+  .countdown .cd-sep{color:var(--muted);font-weight:900}
+  /* مؤشّر «جارية الآن» المباشر (من ESPN) */
+  .live-badge{display:flex;align-items:center;justify-content:center;gap:7px;margin:2px 0 4px;
+    font-family:'Rubik',monospace;font-weight:800;font-size:.82rem;color:var(--red);
+    background:rgba(229,72,77,.12);border:1px solid rgba(229,72,77,.35);border-radius:10px;padding:6px 10px}
+  .live-badge .lv-dot{width:9px;height:9px;border-radius:50%;background:var(--red);animation:lvPulse 1s ease-in-out infinite}
+  @keyframes lvPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.65)}}
+  .live-badge b{font-size:.95rem}
+  /* بانر "أضِف للشاشة الرئيسية" (آيفون) */
+  /* نافذة تثبيت التطبيق — كبيرة في نص الشاشة */
+  #a2hs{display:none;position:fixed;inset:0;z-index:9999;background:rgba(5,8,7,.72);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:22px;animation:a2hsFade .25s ease}
+  @keyframes a2hsFade{from{opacity:0}to{opacity:1}}
+  .a2hs-card{position:relative;background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line-strong);
+    border-radius:24px;padding:30px 22px 24px;max-width:370px;width:100%;text-align:center;box-shadow:0 30px 70px -20px rgba(0,0,0,.8);animation:a2hsPop .3s cubic-bezier(.2,.9,.3,1.3)}
+  @keyframes a2hsPop{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
+  .a2hs-card .ic{width:84px;height:84px;border-radius:21px;display:block;margin:0 auto 16px;box-shadow:0 14px 34px -10px rgba(0,0,0,.6)}
+  .a2hs-card h2{font-size:1.45rem;margin:0 0 8px}
+  .a2hs-card .sub{color:var(--muted);font-size:.92rem;line-height:1.6;margin:0 0 20px}
+  .a2hs-steps{text-align:right;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:0 0 20px;font-size:.95rem;line-height:2.1}
+  .a2hs-steps b{color:var(--gold)}
+  .a2hs-card .go{width:100%;background:var(--gold);color:#1a1205;border:none;font-family:inherit;font-weight:900;font-size:1.02rem;padding:14px;border-radius:14px;cursor:pointer}
+  .a2hs-card .x{position:absolute;top:12px;left:14px;background:none;border:none;color:var(--muted);font-size:1.5rem;cursor:pointer;line-height:1}
+  /* شريط تفعيل التذكيرات */
+  .notif-bar{display:flex;align-items:center;gap:10px;margin:0 0 16px;padding:11px 13px;
+    background:linear-gradient(180deg,rgba(245,197,66,.12),rgba(245,197,66,.05));
+    border:1px solid rgba(245,197,66,.3);border-radius:14px;font-size:.82rem;color:var(--txt)}
+  .notif-bar span{flex:1;line-height:1.5}
+  .notif-bar button{flex:0 0 auto;background:var(--gold);color:#1a1205;border:none;font-family:inherit;
+    font-weight:900;font-size:.82rem;padding:8px 16px;border-radius:10px;cursor:pointer}
+  /* قائمة دخول اللاعبين (أدمن) */
+  .usage-wrap{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin:0 0 16px;overflow:hidden}
+  .usage-wrap summary{cursor:pointer;padding:12px 14px;font-weight:800;font-size:.85rem;list-style:none}
+  .usage-wrap summary::-webkit-details-marker{display:none}
+  .usage-wrap summary b{color:var(--pitch)}
+  .usage-list{border-top:1px solid var(--line)}
+  .usage-row{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center;padding:9px 14px;border-bottom:1px solid var(--line);font-size:.8rem}
+  .usage-row:last-child{border-bottom:none}
+  .usage-row .u-name{font-weight:800}
+  .usage-row .u-mode{justify-self:end;white-space:nowrap}
+  .usage-row .u-when{grid-column:1 / -1;font-size:.72rem;display:flex;gap:8px;justify-content:flex-start}
+  /* زر «مين توقّع» + لوحته */
+  .who-btn{width:100%;margin:8px 0 0;background:rgba(74,125,255,.12);border:1px solid rgba(74,125,255,.3);color:var(--blue);
+    font-family:inherit;font-weight:800;font-size:.82rem;padding:8px;border-radius:10px;cursor:pointer}
+  .who-panel{margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .who-col{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:9px 10px}
+  .who-h{font-size:.74rem;font-weight:800;margin:0 0 7px}
+  .who-h.ok{color:var(--pitch)} .who-h.no{color:var(--red)}
+  .who-chips{display:flex;flex-wrap:wrap;gap:5px}
+  .who-chip{font-size:.72rem;padding:3px 8px;border-radius:8px;background:rgba(14,159,90,.14);color:#bdeccf}
+  .who-chip.no{background:rgba(229,72,77,.14);color:#f3b6b8}
+  .who-empty{font-size:.72rem;color:var(--muted)}
+  /* حركة الترتيب + مؤشّر الدبل */
+  .mv{font-size:.6rem;font-weight:900;margin-right:3px;display:inline-block;vertical-align:1px}
+  .mv.up{color:var(--pitch)} .mv.down{color:var(--red)} .mv.same{color:var(--muted)}
+  .dbl-tag{color:var(--gold);font-size:.92rem;vertical-align:-1px}
+  /* سحب للتحديث */
+  #ptr{position:fixed;top:6px;left:50%;transform:translateX(-50%) translateY(-52px);z-index:9998;
+    width:40px;height:40px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;opacity:0;box-shadow:var(--shadow);pointer-events:none}
+  #ptr .ptr-spin{width:20px;height:20px;border-radius:50%;border:2px solid var(--line-strong);border-top-color:var(--pitch)}
+  #ptr.refreshing .ptr-spin{animation:ptrspin .7s linear infinite}
+  @keyframes ptrspin{to{transform:rotate(360deg)}}
+  @keyframes swipeInNext{from{opacity:.35;transform:translateX(26px)}to{opacity:1;transform:none}}
+  @keyframes swipeInPrev{from{opacity:.35;transform:translateX(-26px)}to{opacity:1;transform:none}}
+  /* نافذة صورة القبو الفرنسي */
+  #qaboModal{display:none;position:fixed;inset:0;z-index:9998;background:rgba(5,8,7,.82);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:22px;animation:a2hsFade .25s ease}
+  .qabo-card{position:relative;max-width:380px;width:100%;border-radius:24px;overflow:hidden;
+    box-shadow:0 30px 70px -20px rgba(0,0,0,.85);animation:a2hsPop .3s cubic-bezier(.2,.9,.3,1.3)}
+  .qabo-card img{display:block;width:100%;height:auto}
+  .qabo-card .qabo-cap{position:absolute;left:0;right:0;bottom:0;padding:46px 18px 20px;text-align:center;
+    background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.82));
+    color:#fff;font-family:'Rubik',inherit;font-weight:900;font-size:1.32rem;line-height:1.5;
+    text-shadow:0 2px 14px rgba(0,0,0,.9)}
+  .qabo-card .qabo-cap b{color:var(--gold)}
+  .qabo-card .x{position:absolute;top:12px;left:14px;width:34px;height:34px;border-radius:50%;
+    background:rgba(0,0,0,.55);border:none;color:#fff;font-size:1.5rem;cursor:pointer;line-height:1;
+    display:flex;align-items:center;justify-content:center}
+  /* نافذة صورة «راح الدبل يا سول» */
+  #soolModal{display:none;position:fixed;inset:0;z-index:9998;background:rgba(5,8,7,.82);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:18px;animation:a2hsFade .25s ease}
+  .sool-card{position:relative;max-width:460px;width:100%;border-radius:20px;overflow:hidden;
+    box-shadow:0 30px 70px -20px rgba(0,0,0,.85);animation:a2hsPop .3s cubic-bezier(.2,.9,.3,1.3)}
+  .sool-card img{display:block;width:100%;height:auto}
+  .sool-card .sool-cap{position:absolute;left:0;right:0;bottom:0;padding:42px 16px 16px;text-align:center;
+    background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.85));
+    color:#fff;font-family:'Rubik',inherit;font-weight:900;font-size:1.4rem;line-height:1.4;text-shadow:0 2px 14px rgba(0,0,0,.95)}
+  .sool-card .sool-cap b{color:var(--gold)}
+  .sool-card .x{position:absolute;top:10px;left:12px;width:34px;height:34px;border-radius:50%;
+    background:rgba(0,0,0,.6);border:none;color:#fff;font-size:1.5rem;cursor:pointer;line-height:1;z-index:2;
+    display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+
+<!-- نافذة تثبيت التطبيق — كبيرة في نص الشاشة -->
+<div id="a2hs" onclick="if(event.target===this)dismissA2HS()">
+  <div class="a2hs-card">
+    <button class="x" onclick="dismissA2HS()" aria-label="إغلاق">×</button>
+    <img class="ic" src="/icon-192.png" alt=""/>
+    <h2>📲 ثبّت التطبيق على جوالك</h2>
+    <div class="sub">توقّع وتابع التذكيرات بضغطة وحدة — يفتح مثل أي تطبيق، بدون ما تفتح المتصفح كل مرة.</div>
+    <div class="a2hs-steps" id="a2hsSteps"></div>
+    <button class="go" onclick="dismissA2HS()">تمام 👍</button>
+  </div>
+</div>
+<script>
+  function dismissA2HS(){ var b=document.getElementById('a2hs'); if(b) b.style.display='none'; }
+  (function(){
+    var ua=navigator.userAgent||'';
+    var isIOS=/iPhone|iPad|iPod/.test(ua) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+    var isAndroid=/Android/i.test(ua);
+    var standalone = window.navigator.standalone===true || window.matchMedia('(display-mode: standalone)').matches;
+    // نافذة تثبيت التطبيق طالما لم يُثبَّت بعد
+    if((isIOS||isAndroid) && !standalone){
+      var share='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px"><path d="M12 15V4"/><path d="M8.5 7.5 12 4l3.5 3.5"/><path d="M8 10H6v10h12V10h-2"/></svg>';
+      var steps=document.getElementById('a2hsSteps');
+      if(steps){ steps.innerHTML = isIOS
+        ? '<div>1️⃣ افتح الرابط في <b>Safari</b></div><div>2️⃣ اضغط زر <b>Share '+share+'</b> تحت</div><div>3️⃣ اختر <b>Add to Home Screen</b></div>'
+        : '<div>1️⃣ افتح قائمة المتصفح <b>⋮</b></div><div>2️⃣ اختر <b>Add to Home screen</b></div>'; }
+      setTimeout(function(){ var b=document.getElementById('a2hs'); if(b) b.style.display='flex'; }, 1200);
+    }
+  })();
+</script>
+
+<!-- مؤشّر السحب للتحديث -->
+<div id="ptr"><div class="ptr-spin"></div></div>
+
+<!-- ░░░ شاشة الدخول ░░░ -->
+<div id="loginView" class="login">
+  <div class="logo"><div class="big">🏆⚽</div></div>
+  <h1>قروب موس</h1>
+  <p class="tagline">توقعات كأس العالم 2026 — توقّع، نافس، واكسب الجائزة</p>
+  <div class="panel">
+    <div class="seg">
+      <button id="segLogin" class="on" onclick="setMode('login')">دخول</button>
+      <button id="segReg" onclick="setMode('register')">تسجيل جديد</button>
+    </div>
+    <div class="field">
+      <label>الاسم</label>
+      <input id="inName" placeholder="اسمك في القروب" autocomplete="off"/>
+    </div>
+    <div class="field">
+      <label>الرقم السري (4 أرقام على الأقل)</label>
+      <input id="inPin" type="password" inputmode="numeric" placeholder="••••" autocomplete="off"/>
+    </div>
+    <div class="field gp-row" id="gpRow">
+      <label>كلمة دخول القروب</label>
+      <input id="inGroup" placeholder="اطلبها من منشئ القروب" autocomplete="off"/>
+    </div>
+    <button class="submit" id="btnSubmit" onclick="submitAuth()">دخول</button>
+    <div class="err-msg" id="authErr"></div>
+  </div>
+
+  <div class="howto">
+    <h3>📋 كيف تلعب؟</h3>
+    توقّع نتيجة كل مباراة قبل صافرة البداية — وبعدها <b>تُقفل تلقائيًا</b>.<br>
+    في كل جولة اختر <b>مباراة واحدة «دبل ×٢»</b> تتضاعف نقاطها (٣ دبل في دور المجموعات).<br>
+    <h3 style="margin-top:14px">🏆 احتساب النقاط</h3>
+    نتيجة دقيقة صحيحة <span class="pts-pill gold">٥٠</span><br>
+    توقّع الفائز صح فقط <span class="pts-pill">٢٠</span><br>
+    توقّع خاطئ <span class="pts-pill" style="background:#3a3a3a">٠</span><br>
+    مباراة الدبل: النقاط <b>×٢</b> (دقيقة = ١٠٠، فائز = ٤٠).
+  </div>
+</div>
+
+<!-- ░░░ التطبيق ░░░ -->
+<div id="appView" style="display:none">
+  <header><div class="nav">
+    <div class="brand"><span class="ball"></span> قروب موس</div>
+    <div class="who"><span>👋 <b id="meName"></b></span><button class="logout" onclick="logout()">خروج</button></div>
+  </div></header>
+  <div class="wrap">
+    <div class="tabs">
+      <button class="tab on" id="tabMatches" onclick="showTab('matches')">المباريات</button>
+      <button class="tab" id="tabBoard" onclick="showTab('board')">الترتيب</button>
+      <button class="tab" id="tabStats" onclick="showTab('stats')">الإحصائيات</button>
+      <button class="tab" id="tabReveal" onclick="showTab('reveal')">شيك نتايج غيرك</button>
+      <button class="tab" id="tabAdmin" onclick="showTab('admin')" style="display:none">النتائج</button>
+    </div>
+    <div id="notifBar" class="notif-bar" style="display:none">
+      <span id="notifTxt">🔔 فعّل التذكيرات ليوصلك تنبيه قبل كل مباراة</span>
+      <button id="notifBtn" onclick="enableNotifs()">تفعيل</button>
+    </div>
+    <div id="matchesView"><div class="loading"><div class="spin"></div></div></div>
+    <div id="boardView" style="display:none"><div class="loading"><div class="spin"></div></div></div>
+    <div id="statsView" style="display:none"><div class="loading"><div class="spin"></div></div></div>
+    <div id="revealView" style="display:none"><div class="loading"><div class="spin"></div></div></div>
+    <div id="adminView" style="display:none"><div class="loading"><div class="spin"></div></div></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let mode = "login", token = null, meName = null, isAdmin = false;
+let serverNow = null, doubleByRound = {};
+let allMatches = [], allPreds = {}, currentRound = null;
+let matchCounts = {}, totalPlayers = 0;
+let adminPlayers = [], adminPredByMatch = {};
+let clockOffset = 0, countdownTimer = null;
+
+// تهريب أي رموز HTML في النصوص (حماية من XSS عبر أسماء اللاعبين)
+function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// ─── إشعارات Web Push (التذكير بالتوقع) ───
+const VAPID_PUBLIC = "BBEQenVdY4fByc6DIf6D2KOitGlk4JJGuomPpQ9lenX8gInAZitd3hLOY77jLzP0ZJYGXfZ0tOjoGAwPVLVRyes";
+function urlB64ToUint8(b64){
+  const pad="=".repeat((4-b64.length%4)%4);
+  const base=(b64+pad).replace(/-/g,"+").replace(/_/g,"/");
+  const raw=atob(base); const arr=new Uint8Array(raw.length);
+  for(let i=0;i<raw.length;i++) arr[i]=raw.charCodeAt(i);
+  return arr;
+}
+function pushSupported(){ return ("serviceWorker" in navigator) && ("PushManager" in window) && ("Notification" in window); }
+function isIOSdevice(){ return /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1); }
+function isStandalone(){ return window.navigator.standalone===true || window.matchMedia("(display-mode: standalone)").matches; }
+async function registerSW(){ try{ if("serviceWorker" in navigator) return await navigator.serviceWorker.register("/sw.js"); }catch(e){} return null; }
+
+// ─── تسجيل الدخول (تطبيق/متصفح + الجهاز) للأدمن ───
+function platformName(){ if(isIOSdevice()) return "iPhone"; if(/Android/i.test(navigator.userAgent)) return "Android"; return "كمبيوتر"; }
+function reportSeen(){
+  try{ fetch("/api/seen",{method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({ token, mode: isStandalone()?"app":"browser", platform: platformName() })}); }catch(e){}
+}
+function timeAgoAr(iso){
+  if(!iso) return "لم يدخل بعد";
+  const s=Math.max(0,(Date.now()-new Date(iso).getTime())/1000);
+  if(s<60) return "قبل لحظات";
+  const m=Math.floor(s/60); if(m<60) return `قبل ${m} دقيقة`;
+  const h=Math.floor(m/60); if(h<24) return `قبل ${h} ساعة`;
+  const d=Math.floor(h/24); if(d<30) return `قبل ${d} يوم`;
+  return new Date(iso).toLocaleDateString("ar");
+}
+
+async function enableNotifs(){
+  try{
+    if(!pushSupported()){ toast("جهازك لا يدعم الإشعارات", true); return; }
+    if(isIOSdevice() && !isStandalone()){ toast("ثبّت التطبيق أول: زر Share ← Add to Home Screen", true); return; }
+    const reg = await registerSW();
+    if(!reg){ toast("تعذّر التفعيل", true); return; }
+    await navigator.serviceWorker.ready;
+    const perm = await Notification.requestPermission();
+    if(perm!=="granted"){ toast("لازم تسمح بالإشعارات", true); return; }
+    let sub = await reg.pushManager.getSubscription();
+    if(!sub) sub = await reg.pushManager.subscribe({ userVisibleOnly:true, applicationServerKey: urlB64ToUint8(VAPID_PUBLIC) });
+    const r = await fetch("/api/subscribe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({token, subscription: sub.toJSON()})});
+    if(r.ok){ toast("✅ تم تفعيل التذكيرات"); try{localStorage.setItem("notif_on","1")}catch(e){} updateNotifBar(); }
+    else toast("تعذّر حفظ الاشتراك", true);
+  }catch(e){ toast("تعذّر التفعيل", true); }
+}
+
+function updateNotifBar(){
+  const bar=document.getElementById("notifBar"); if(!bar) return;
+  if(!("serviceWorker" in navigator)){ bar.style.display="none"; return; }
+  const granted = ("Notification" in window) && Notification.permission==="granted";
+  let on=false; try{ on = localStorage.getItem("notif_on")==="1"; }catch(e){}
+  if(granted && on){ bar.style.display="none"; return; }
+  const txt=document.getElementById("notifTxt"), btn=document.getElementById("notifBtn");
+  if(isIOSdevice() && !isStandalone()){
+    txt.innerHTML='🔔 ثبّت التطبيق أول: Share <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M12 15V4"/><path d="M8.5 7.5 12 4l3.5 3.5"/><path d="M8 10H6v10h12V10h-2"/></svg> ← Add to Home Screen — عشان توصلك التذكيرات';
+    btn.style.display="none";
+  } else if(pushSupported()){
+    txt.textContent="🔔 فعّل التذكيرات ليوصلك تنبيه قبل كل مباراة";
+    btn.style.display="";
+  } else { bar.style.display="none"; return; }
+  bar.style.display="flex";
+}
+
+async function remindNext(btn){
+  if(btn){ btn.disabled=true; btn.textContent="… جاري الإرسال"; }
+  try{
+    const r=await fetch("/api/notify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({token, force:true})});
+    const d=await r.json();
+    if(r.ok) toast(`📤 أُرسل التذكير — ${d.sent||0} إشعار`);
+    else toast(d.error||"تعذّر الإرسال", true);
+  }catch(e){ toast("تعذّر الإرسال", true); }
+  if(btn){ btn.disabled=false; btn.textContent="🔔 ذكّر اللي ما توقّعوا في المباراة القادمة"; }
+}
+
+// استرجاع الجلسة المحفوظة (تبقى محفوظة حتى بعد إغلاق المتصفح/التطبيق)
+try {
+  token = localStorage.getItem("mos_token") || sessionStorage.getItem("mos_token");
+  meName = localStorage.getItem("mos_name") || sessionStorage.getItem("mos_name");
+} catch (e) {}
+if (token && meName) showApp();
+
+function setMode(m){
+  mode = m;
+  document.getElementById("segLogin").classList.toggle("on", m==="login");
+  document.getElementById("segReg").classList.toggle("on", m==="register");
+  document.getElementById("gpRow").classList.toggle("show", m==="register");
+  document.getElementById("btnSubmit").textContent = m==="login" ? "دخول" : "إنشاء حساب";
+  document.getElementById("authErr").textContent = "";
+}
+
+async function submitAuth(){
+  const name = document.getElementById("inName").value.trim();
+  const pin = document.getElementById("inPin").value.trim();
+  const groupPassword = document.getElementById("inGroup").value.trim();
+  const err = document.getElementById("authErr");
+  err.textContent = "";
+  if(!name || !pin){ err.textContent = "اكتب الاسم والرقم السري"; return; }
+
+  try{
+    const r = await fetch("/api/auth", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ action:mode, name, pin, groupPassword })
+    });
+    const d = await r.json();
+    if(!r.ok){ err.textContent = d.error || "خطأ"; return; }
+    token = d.token; meName = d.name; isAdmin = d.isAdmin;
+    try { localStorage.setItem("mos_token", token); localStorage.setItem("mos_name", meName); } catch (e) {}
+    showApp();
+  }catch(e){ err.textContent = "تعذّر الاتصال — حاول مرة ثانية"; }
+}
+
+function logout(){
+  try { localStorage.removeItem("mos_token"); localStorage.removeItem("mos_name"); sessionStorage.clear(); } catch (e) {}
+  token=null; meName=null;
+  document.getElementById("appView").style.display="none";
+  document.getElementById("loginView").style.display="block";
+}
+
+function showApp(){
+  document.getElementById("loginView").style.display="none";
+  document.getElementById("appView").style.display="block";
+  document.getElementById("meName").textContent = meName;
+  loadMatches();
+  registerSW();
+  updateNotifBar();
+  reportSeen();
+}
+
+function showTab(t){
+  document.getElementById("tabMatches").classList.toggle("on", t==="matches");
+  document.getElementById("tabBoard").classList.toggle("on", t==="board");
+  document.getElementById("tabStats").classList.toggle("on", t==="stats");
+  document.getElementById("tabReveal").classList.toggle("on", t==="reveal");
+  document.getElementById("tabAdmin").classList.toggle("on", t==="admin");
+  document.getElementById("matchesView").style.display = t==="matches"?"block":"none";
+  document.getElementById("boardView").style.display = t==="board"?"block":"none";
+  document.getElementById("statsView").style.display = t==="stats"?"block":"none";
+  document.getElementById("revealView").style.display = t==="reveal"?"block":"none";
+  document.getElementById("adminView").style.display = t==="admin"?"block":"none";
+  if(t==="board") loadBoard();
+  if(t==="stats") loadStats();
+  if(t==="reveal") loadReveal();
+  if(t==="admin") loadAdmin();
+}
+
+// ─── المباريات ───
+async function loadMatches(){
+  const view = document.getElementById("matchesView");
+  // تحديث النتائج من openfootball في الخلفية (مجاني، بدون تعطيل التحميل)
+  fetch("/api/sync").catch(()=>{});
+  try{
+    const r = await fetch("/api/predictions?token="+encodeURIComponent(token));
+    if(r.status===401){ logout(); return; }
+    const d = await r.json();
+    serverNow = new Date(d.now);
+    clockOffset = serverNow.getTime() - Date.now();   // مزامنة العدّاد مع وقت الخادم
+    isAdmin = !!d.isAdmin;
+    matchCounts = d.counts || {}; totalPlayers = d.totalPlayers || 0;
+    document.getElementById("tabAdmin").style.display = isAdmin ? "" : "none";
+    renderMatches(d.matches, d.predictions, view);
+    startCountdownTimer();
+    startLiveTimer();
+  }catch(e){ view.innerHTML = '<div class="empty">تعذّر تحميل المباريات</div>'; }
+}
+
+// الجولات المتوفّرة فعليًا، مرتّبة
+function roundsPresent(){
+  const set = new Set(allMatches.map(m=>roundKey(m.matchday)));
+  return ROUND_ORDER.filter(k=>set.has(k));
+}
+
+function renderMatches(matches, preds, view){
+  allMatches = matches; allPreds = preds;
+  // اكتشف مباراة الدبل الحالية لكل جولة
+  doubleByRound = {};
+  for(const m of matches){
+    const p = preds[m.id];
+    if(p && p.is_double) doubleByRound[roundKey(m.matchday)] = m.id;
+  }
+  // اختر الجولة الافتراضية: أول جولة فيها مباراة لم تبدأ بعد، وإلا آخر جولة
+  const rounds = roundsPresent();
+  if(!rounds.length){ view.innerHTML = '<div class="empty">لا توجد مباريات</div>'; return; }
+  if(!currentRound || !rounds.includes(currentRound)){
+    currentRound = rounds.find(rk =>
+      allMatches.some(m=>roundKey(m.matchday)===rk && new Date(m.kickoff) > serverNow)
+    ) || rounds[rounds.length-1];
+  }
+  renderRound(view);
+}
+
+function renderRound(view){
+  view = view || document.getElementById("matchesView");
+  const rounds = roundsPresent();
+  const idx = rounds.indexOf(currentRound);
+  const list = allMatches
+    .filter(m=>roundKey(m.matchday)===currentRound)
+    .sort((a,b)=> new Date(a.kickoff)-new Date(b.kickoff));
+
+  // شريط منتقي الجولات
+  let sel = '<div class="rounds">';
+  for(const rk of rounds){
+    sel += `<button class="round-btn ${rk===currentRound?'on':''}" onclick="gotoRound('${rk}')">${ROUND_LABELS[rk]||rk}</button>`;
+  }
+  sel += '</div>';
+
+  // عنوان الجولة + تلميح الدبل
+  let html = sel + `<div class="howto-app dbl-hint">⚡ اختر مباراة واحدة من هذه الجولة تتضاعف نقاطها (دبل ×٢)</div>`;
+  // تجميع مباريات الجولة حسب اليوم لسهولة القراءة
+  const byDate = {};
+  for(const m of list){ const k = new Date(m.kickoff).toISOString().slice(0,10); (byDate[k]=byDate[k]||[]).push(m); }
+  for(const dk of Object.keys(byDate).sort()){
+    const dlabel = new Date(dk+"T12:00:00").toLocaleDateString("ar",{weekday:"long",day:"numeric",month:"long"});
+    html += `<div class="day-group"><div class="day-head"><h3>${dlabel}</h3><span class="dh-meta">${byDate[dk].length} مباريات</span></div>`;
+    for(const m of byDate[dk]){ html += matchCard(m, allPreds[m.id]); }
+    html += `</div>`;
+  }
+  // أزرار التنقّل بين الجولات
+  html += `<div class="round-nav">
+    <button onclick="gotoRound('${rounds[idx+1]||''}')" ${idx>=rounds.length-1?'disabled':''}>الجولة التالية ←</button>
+    <button onclick="gotoRound('${rounds[idx-1]||''}')" ${idx<=0?'disabled':''}>→ الجولة السابقة</button>
+  </div>`;
+
+  view.innerHTML = html;
+  wireMatchEvents(allMatches, allPreds);
+  applyLive();
+}
+
+function gotoRound(rk){ if(!rk) return; currentRound = rk; renderRound(); window.scrollTo({top:0,behavior:'smooth'}); }
+
+// ─── العدّاد التنازلي ───
+function toAr(n){ return String(n); }            // أرقام إنجليزية في العدّاد
+function pad2(n){ return String(n).padStart(2,"0"); }
+function cdSeg(v,l){ return `<span class="cd-seg"><b>${v}</b><span>${l}</span></span>`; }
+function cdSep(){ return `<span class="cd-sep">:</span>`; }
+
+function startCountdownTimer(){
+  updateCountdowns();
+  if(countdownTimer) return;
+  countdownTimer = setInterval(updateCountdowns, 1000);
+}
+
+function updateCountdowns(){
+  const now = Date.now() + clockOffset;   // وقت مقدّر للخادم
+  document.querySelectorAll(".countdown[data-kick]").forEach(el=>{
+    const rem = (+el.dataset.kick) - now;
+    if(rem <= 0){
+      el.classList.remove("soon"); el.classList.add("live");
+      el.textContent = "🔴 بدأت";
+      const card = el.closest(".card");
+      if(card && !card.classList.contains("locked")){
+        card.classList.add("locked");
+        card.querySelectorAll(".num, .save, .dbl-btn").forEach(x=>{ x.disabled = true; });
+      }
+      return;
+    }
+    const s = Math.floor(rem/1000);
+    const d = Math.floor(s/86400), h = Math.floor((s%86400)/3600), m = Math.floor((s%3600)/60), sec = s%60;
+    el.classList.toggle("soon", s < 3600);   // أقل من ساعة
+    el.innerHTML = "⏳ " + cdSeg(toAr(d),"يوم") + cdSep() + cdSeg(pad2(h),"ساعة") + cdSep() + cdSeg(pad2(m),"دقيقة") + cdSep() + cdSeg(pad2(sec),"ثانية");
+  });
+}
+
+// ─── حالة المباريات المباشرة: متصفّح اللاعب يجيبها مباشرة من ESPN (صفر حِمل على السيرفر) ───
+let liveStatus = {}, liveTimer = null;
+function lvNorm(s){ let x=String(s||"").toLowerCase().replace(/[^a-z]/g,"");
+  if(x.includes("czech"))return"czech"; if(x.includes("bosnia"))return"bosnia";
+  if(x==="usa"||x.includes("unitedstates"))return"usa"; if(x.includes("korea"))return"korea";
+  if(x.includes("ivor")||x.includes("cotedivoire"))return"ivory"; if(x.includes("congo"))return"congo";
+  if(x.includes("turk"))return"turkey"; if(x.includes("curacao")||x.includes("curaao"))return"curacao";
+  return x; }
+function lvPair(a,b){ return [lvNorm(a),lvNorm(b)].sort().join("|"); }
+function liveWindowActive(){
+  const now = Date.now()+clockOffset;
+  return (allMatches||[]).some(m=>{ const k=new Date(m.kickoff).getTime();
+    return m.status!=="finished" && k<=now && (now-k) < 3*3600*1000; });   // بدأت قبل أقل من 3 ساعات ولم تُحتسب
+}
+async function fetchLive(){
+  try{
+    if(!liveWindowActive()){ liveStatus={}; applyLive(); return; }   // لا مباراة في نافذة البث — لا تتصل
+    const now = new Date(Date.now()+clockOffset);
+    const dates = [];
+    for(let off=-1; off<=0; off++){ const d=new Date(now); d.setUTCDate(d.getUTCDate()+off);
+      dates.push(`${d.getUTCFullYear()}${pad2(d.getUTCMonth()+1)}${pad2(d.getUTCDate())}`); }
+    const map = {};
+    for(const dt of dates){
+      try{
+        const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=${dt}`,{cache:"no-store"});
+        const dd = await r.json();
+        for(const ev of dd.events||[]){
+          const c = ev.competitions?.[0]?.competitors||[];
+          const h = c.find(x=>x.homeAway==="home"), a = c.find(x=>x.homeAway==="away");
+          if(!h||!a) continue;
+          map[lvPair(h.team?.displayName, a.team?.displayName)] = {
+            state: ev.status?.type?.state,
+            detail: ev.status?.type?.shortDetail || ev.status?.type?.detail || "",
+            home: h.team?.displayName, hs: h.score, as: a.score };
+        }
+      }catch(e){}
+    }
+    liveStatus = map; applyLive();
+  }catch(e){}
+}
+function applyLive(){
+  document.querySelectorAll('.card').forEach(card=>{
+    const m = (allMatches||[]).find(x=>x.id===parseInt(card.dataset.match)); if(!m) return;
+    const st = liveStatus[lvPair(m.team1, m.team2)];
+    let badge = card.querySelector('.live-badge');
+    if(st && st.state==="in"){
+      let scoreTxt = "";
+      if(st.hs!=null && st.as!=null){
+        let s1, s2;
+        if(lvNorm(st.home)===lvNorm(m.team1)){ s1=st.hs; s2=st.as; } else { s1=st.as; s2=st.hs; }
+        scoreTxt = ` · <b dir="ltr">${s2} − ${s1}</b>`;
+      }
+      if(!badge){ badge=document.createElement('div'); badge.className='live-badge';
+        const teams=card.querySelector('.teams'); if(teams) teams.insertAdjacentElement('afterend', badge); else card.appendChild(badge); }
+      badge.innerHTML = `<span class="lv-dot"></span> جارية الآن · ${st.detail}${scoreTxt}`;
+    } else if(badge){ badge.remove(); }
+  });
+}
+function startLiveTimer(){
+  fetchLive();
+  if(liveTimer) return;
+  liveTimer = setInterval(fetchLive, 45000);   // كل 45 ثانية، من المتصفح فقط
+}
+
+function matchCard(m, pred){
+  const info1 = teamInfo(m.team1), info2 = teamInfo(m.team2);
+  const locked = new Date(m.kickoff) <= serverNow;
+  const finished = m.status==="finished";
+  const isDbl = doubleByRound[roundKey(m.matchday)]===m.id;
+  // هل دبل هذه الجولة مُقفل؟ (موضوع على مباراة بدأت بالفعل)
+  let roundDblLocked = false;
+  const dblId = doubleByRound[roundKey(m.matchday)];
+  if(dblId && dblId!==m.id){
+    const dm = allMatches.find(x=>x.id===dblId);
+    if(dm && new Date(dm.kickoff) <= serverNow) roundDblLocked = true;
+  }
+  const p1 = pred ? pred.pred1 : "";
+  const p2 = pred ? pred.pred2 : "";
+  const saved = !!pred;
+  const kt = new Date(m.kickoff).toLocaleTimeString("ar",{hour:"2-digit",minute:"2-digit"});
+
+  let badge = isDbl ? '<span class="badge-dbl">⚡ الدبل ×٢</span>' : "";
+  let ptsBadge = (finished && pred) ? `<span class="badge-pts">+${pred.points} نقطة</span>` : "";
+
+  return `<div class="card ${locked?'locked':''} ${isDbl?'isdbl':''}" data-match="${m.id}" data-day="${m.matchday}">
+    ${badge}${ptsBadge}
+    <div class="card-top">
+      <span class="stage">${m.grp||""}</span>
+      <span class="kick">${finished?'انتهت':(locked?'بدأت':kt)}</span>
+    </div>
+    <div class="mini-count">👥 ${matchCounts[m.id]||0} توقّعوا · ${Math.max(0, totalPlayers-(matchCounts[m.id]||0))} ما توقّعوا</div>
+    <div class="teams">
+      <div class="team"><span class="flag">${info1.flag}</span><span class="tname">${info1.ar}</span></div>
+      <div class="score-in">
+        <input class="num" type="number" min="0" inputmode="numeric" data-side="1" value="${p1}" ${locked?'disabled':''}/>
+        <span class="dash">−</span>
+        <input class="num" type="number" min="0" inputmode="numeric" data-side="2" value="${p2}" ${locked?'disabled':''}/>
+      </div>
+      <div class="team"><span class="flag">${info2.flag}</span><span class="tname">${info2.ar}</span></div>
+    </div>
+    ${(!finished && !locked)?`<div class="countdown" data-kick="${new Date(m.kickoff).getTime()}">⏳ …</div>`:""}
+    ${finished?`<div class="final">النتيجة الفعلية: <b dir="ltr">${m.score2} − ${m.score1}</b></div>`:""}
+    <div class="actions">
+      <button class="save ${saved?'done':''}" data-act="save" ${locked?'disabled':''}>${saved?'✓ محفوظ — عدّل':'احفظ التوقع'}</button>
+      <button class="dbl-btn ${isDbl?'on':''}" data-act="dbl" ${(locked||roundDblLocked)?'disabled':''} ${roundDblLocked?'title="دبل هذه الجولة مُقفل — بدأت مباراته"':''}>×٢ ${isDbl?'الدبل هنا':(roundDblLocked?'مُقفل':'ضاعفها')}</button>
+    </div>
+  </div>`;
+}
+
+function wireMatchEvents(matches, preds){
+  document.querySelectorAll(".card").forEach(card=>{
+    const mid = parseInt(card.dataset.match);
+    const day = card.dataset.day;
+    const saveBtn = card.querySelector('[data-act="save"]');
+    const dblBtn = card.querySelector('[data-act="dbl"]');
+    const inputs = card.querySelectorAll(".num");
+
+    if(saveBtn && !saveBtn.disabled){
+      saveBtn.onclick = async ()=>{
+        const v1 = inputs[0].value, v2 = inputs[1].value;
+        if(v1===""||v2===""){ toast("اكتب نتيجة الفريقين", true); return; }
+        const isDbl = card.classList.contains("isdbl");
+        await savePred(mid, parseInt(v1), parseInt(v2), isDbl);
+      };
+    }
+    if(dblBtn && !dblBtn.disabled){
+      dblBtn.onclick = async ()=>{
+        const v1 = inputs[0].value, v2 = inputs[1].value;
+        if(v1===""||v2===""){ toast("اكتب النتيجة قبل تختارها دبل", true); return; }
+        // إلغاء دبل بقية مباريات اليوم بصريًا
+        const turnOn = !card.classList.contains("isdbl");
+        await savePred(mid, parseInt(v1), parseInt(v2), turnOn);
+      };
+    }
+  });
+}
+
+async function savePred(matchId, pred1, pred2, isDouble){
+  try{
+    const r = await fetch("/api/predictions", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ token, matchId, pred1, pred2, isDouble })
+    });
+    const d = await r.json();
+    if(!r.ok){ toast(d.error||"تعذّر الحفظ", true); return; }
+    toast(isDouble ? "⚡ تم الحفظ — صارت مباراة الدبل" : "✅ تم حفظ توقعك");
+    loadMatches();
+  }catch(e){ toast("تعذّر الاتصال", true); }
+}
+
+// ─── الترتيب ───
+async function loadBoard(){
+  const view = document.getElementById("boardView");
+  view.innerHTML = '<div class="loading"><div class="spin"></div></div>';
+  try{
+    const r = await fetch("/api/leaderboard");
+    const d = await r.json();
+    const lb = d.leaderboard||[];
+    if(lb.length===0){ view.innerHTML='<div class="empty">لا يوجد لاعبون بعد</div>'; return; }
+    const roundLbl = (typeof ROUND_LABELS!=="undefined" && ROUND_LABELS[d.currentRound]) || "الجولة الحالية";
+    let html = `<div class="howto-app dbl-hint" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+      <span><b style="color:var(--pitch)">▲</b>/<b style="color:var(--red)">▼</b> الحركة من آخر مباراة</span>
+      <span><b style="color:var(--gold)">⚡</b> حاطّ الدبل في ${esc(roundLbl)}</span></div>`;
+    html += '<div class="board">';
+    lb.forEach((p,i)=>{
+      const me = p.name===meName;
+      const mv = p.movement;
+      const arrow = (mv==null) ? '' : (mv>0 ? `<span class="mv up">▲${mv}</span>` : (mv<0 ? `<span class="mv down">▼${Math.abs(mv)}</span>` : '<span class="mv same">—</span>'));
+      const dbl = p.double_this_round ? '<span class="dbl-tag">⚡</span>' : '';
+      html += `<div class="row ${me?'me':''}">
+        <div class="rank">${i===0?'🥇':(i===1?'🥈':(i===2?'🥉':i+1))}${arrow}</div>
+        <div class="player"><span class="ava">${esc(p.name[0])}</span>${esc(p.name)} ${dbl} ${me?'<span class="me-tag">أنت</span>':''}</div>
+        <div class="score">${p.total_points}<small> نقطة · ${p.correct_preds} صح</small></div>
+      </div>`;
+    });
+    html += '</div>';
+    view.innerHTML = html;
+  }catch(e){ view.innerHTML='<div class="empty">تعذّر تحميل الترتيب</div>'; }
+}
+
+// ─── الإحصائيات ───
+async function loadStats(){
+  const view = document.getElementById("statsView");
+  view.innerHTML = '<div class="loading"><div class="spin"></div></div>';
+  try{
+    const r = await fetch("/api/stats");
+    const d = await r.json();
+    const st = (d.stats||[]);
+    if(st.length===0){ view.innerHTML='<div class="empty">لا توجد إحصائيات بعد</div>'; return; }
+    let html = `<div class="howto-app dbl-hint">📊 ترتيب اللاعبين حسب النتائج الدقيقة الصحيحة ثم توقّعات الفائز الصحيحة</div>`;
+    html += `<div class="board">
+      <div class="stat-head"><div>#</div><div>اللاعب</div><div style="text-align:center">دقيقة صح</div><div style="text-align:center">فائز صح</div></div>`;
+    st.forEach((p,i)=>{
+      const me = p.name===meName;
+      html += `<div class="stat-row ${me?'me':''}">
+        <div class="rank">${i===0?'🥇':(i===1?'🥈':(i===2?'🥉':i+1))}</div>
+        <div class="player"><span class="ava">${esc(p.name[0])}</span>${esc(p.name)} ${me?'<span class="me-tag">أنت</span>':''}</div>
+        <div class="stat-num stat-exact">${p.exact_count}<small>نتيجة</small></div>
+        <div class="stat-num stat-outcome">${p.outcome_count}<small>مباراة</small></div>
+      </div>`;
+    });
+    html += '</div>';
+    view.innerHTML = html;
+  }catch(e){ view.innerHTML='<div class="empty">تعذّر تحميل الإحصائيات</div>'; }
+}
+
+// ─── الكشف: توقعات الجميع للمباريات التي بدأت ───
+function sgn(a,b){ return a>b?1:(a<b?-1:0); }
+
+async function loadReveal(){
+  const view=document.getElementById("revealView");
+  view.innerHTML='<div class="loading"><div class="spin"></div></div>';
+  try{
+    const r=await fetch("/api/reveal?token="+encodeURIComponent(token));
+    if(r.status===401){ logout(); return; }
+    const d=await r.json();
+    const ms=d.matches||[];
+    if(!ms.length){ view.innerHTML='<div class="empty">ما فيه مباراة بدأت بعد — يظهر هنا توقعات الجميع تلقائيًا بمجرد ما تبدأ أي مباراة.</div>'; return; }
+    view.innerHTML=ms.map(revealCard).join("");
+  }catch(e){ view.innerHTML='<div class="empty">تعذّر تحميل الكشف</div>'; }
+}
+
+function revealCard(m){
+  const i1=teamInfo(m.team1), i2=teamInfo(m.team2);
+  const finished = m.status==="finished" && m.score1!=null && m.score2!=null;
+  const scoreHtml = finished ? `<span class="rv-score" dir="ltr">${m.score2} - ${m.score1}</span>`
+                             : `<span class="rv-score pending" dir="ltr">– : –</span>`;
+  const meta = finished ? 'النتيجة الفعلية · انتهت' : 'بدأت · لم تنتهِ بعد';
+  let preds=[...m.preds];
+  if(finished){
+    const rank=p=>{ const ex=p.pred1===m.score1&&p.pred2===m.score2; const win=sgn(p.pred1,p.pred2)===sgn(m.score1,m.score2); return ex?0:(win?1:2); };
+    preds.sort((a,b)=>rank(a)-rank(b));
+  } else {
+    preds.sort((a,b)=> (b.is_double?1:0)-(a.is_double?1:0));
+  }
+  const rows=preds.map(p=>{
+    let cls="rv-p", pts="";
+    if(p.is_double) cls+=" dbl";
+    if(finished){
+      const ex=p.pred1===m.score1&&p.pred2===m.score2;
+      const win=sgn(p.pred1,p.pred2)===sgn(m.score1,m.score2);
+      if(ex && !p.is_double) cls="rv-p exact";
+      if(!win && !ex) cls+=" miss";
+      pts=`<span class="pt">${p.points>0?'+':''}${p.points}</span>`;
+    }
+    return `<div class="${cls}"><span class="nm">${p.is_double?'⚡ ':''}${esc(p.name)}${p.is_double?' · دبل':''}</span><span class="sc">${p.pred2}-${p.pred1}</span>${pts}</div>`;
+  }).join("");
+  return `<div class="rv-card">
+    <div class="rv-head"><span class="rv-team">${i1.ar} <span class="rv-flag">${i1.flag}</span></span>${scoreHtml}<span class="rv-team"><span class="rv-flag">${i2.flag}</span> ${i2.ar}</span></div>
+    <div class="rv-meta">🔒 ${meta} · ${m.preds.length} توقّع</div>
+    <div class="rv-grid">${rows}</div>
+  </div>`;
+}
+
+// ─── إدارة النتائج + المشاركة (أدمن) ───
+async function loadAdmin(){
+  const view=document.getElementById("adminView");
+  view.innerHTML='<div class="loading"><div class="spin"></div></div>';
+  try{
+    const r=await fetch("/api/predictions?token="+encodeURIComponent(token));
+    if(r.status===401){ logout(); return; }
+    const d=await r.json();
+    if(!d.isAdmin){ view.innerHTML='<div class="empty">هذه الصفحة للأدمن فقط.</div>'; return; }
+    // أسماء من توقّع لكل مباراة (لزر «مين توقّع»)
+    try{ const pr=await fetch("/api/predictors?token="+encodeURIComponent(token)).then(x=>x.json());
+      adminPlayers=pr.players||[]; adminPredByMatch=pr.predByMatch||{}; }catch(e){ adminPlayers=[]; adminPredByMatch={}; }
+    const now=new Date(d.now);
+    const counts=d.counts||{}, total=d.totalPlayers||0;
+    const all=(d.matches||[]);
+    const started=all.filter(m=>new Date(m.kickoff)<=now).sort((a,b)=>new Date(b.kickoff)-new Date(a.kickoff));
+    const upcoming=all.filter(m=>new Date(m.kickoff)>now).sort((a,b)=>new Date(a.kickoff)-new Date(b.kickoff)).slice(0,16);
+    let html=`<div class="howto-app dbl-hint">👥 إجمالي اللاعبين: <b>${total}</b> — كم توقّع وكم ما توقّع لكل مباراة، وإدخال النتيجة عند تأخّر المصدر.</div>`;
+    html+=`<button class="save" style="width:100%;margin:0 0 14px" onclick="remindNext(this)">🔔 ذكّر اللي ما توقّعوا في المباراة القادمة</button>`;
+    html+=`<div id="usageBox"></div>`;
+    if(started.length){
+      html+='<div class="day-head"><h3>المباريات التي بدأت</h3></div>';
+      html+=started.map(m=>adminRow(m,counts[m.id]||0,total,true)).join("");
+    }
+    if(upcoming.length){
+      html+='<div class="day-head" style="margin-top:20px"><h3>القادمة (المشاركة)</h3></div>';
+      html+=upcoming.map(m=>adminRow(m,counts[m.id]||0,total,false)).join("");
+    }
+    view.innerHTML=html || '<div class="empty">لا توجد مباريات</div>';
+    loadUsage();
+  }catch(e){ view.innerHTML='<div class="empty">تعذّر التحميل</div>'; }
+}
+
+// قائمة دخول اللاعبين (للأدمن): تطبيق/متصفح + الجهاز + آخر دخول + العدد
+async function loadUsage(){
+  const box=document.getElementById("usageBox"); if(!box) return;
+  box.innerHTML='<div class="loading" style="padding:14px"><div class="spin"></div></div>';
+  try{
+    const r=await fetch("/api/usage?token="+encodeURIComponent(token));
+    if(!r.ok){ box.innerHTML=''; return; }
+    const d=await r.json();
+    const rows=(d.players||[]).map(p=>{
+      const entered=p.last_open;
+      const mode = !entered ? '<span style="color:var(--muted)">—</span>'
+        : (p.last_mode==="app" ? '<span style="color:var(--pitch)">📱 تطبيق</span>' : '<span style="color:var(--blue)">🌐 متصفح</span>');
+      const plat = entered ? `<span style="color:var(--muted)">${esc(p.platform||"")}</span>` : "";
+      const when = `<span style="color:var(--muted)">${esc(timeAgoAr(entered))}</span>`;
+      const cnt = entered ? `<span style="color:var(--muted)">${p.opens||0}×</span>` : "";
+      return `<div class="usage-row">
+        <span class="u-name">${esc(p.name)}</span>
+        <span class="u-mode">${mode} ${plat}</span>
+        <span class="u-when">${when} ${cnt}</span>
+      </div>`;
+    }).join("");
+    box.innerHTML=`<details class="usage-wrap" open>
+      <summary>📲 دخول اللاعبين — <b>${d.installedCount||0}</b> ثبّتوا التطبيق من <b>${d.total||0}</b></summary>
+      <div class="usage-list">${rows || '<div class="empty">لا يوجد</div>'}</div>
+    </details>`;
+  }catch(e){ box.innerHTML=''; }
+}
+
+function adminRow(m, predicted, total, started){
+  const i1=teamInfo(m.team1), i2=teamInfo(m.team2);
+  const notPred=Math.max(0, total-predicted);
+  const fin=m.status==="finished" && m.score1!=null;
+  const s1=fin?m.score1:"", s2=fin?m.score2:"";
+  const kt=new Date(m.kickoff).toLocaleString("ar",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+  const badge = started
+    ? (fin ? (m.manual?'<span style="color:var(--gold)">● نتيجة يدوية</span>':'<span style="color:var(--pitch)">● النتيجة دخلت</span>') : '<span style="color:var(--muted)">⏳ بانتظار النتيجة</span>')
+    : `<span style="color:var(--pitch)">${kt}</span>`;
+  const mid = started
+    ? `<div class="score-in"><input class="num adm1" type="number" min="0" inputmode="numeric" value="${s1}"/><span class="dash">−</span><input class="num adm2" type="number" min="0" inputmode="numeric" value="${s2}"/></div>`
+    : `<div class="score-in"><span style="color:var(--muted);font-weight:800">ضد</span></div>`;
+  const countLine = `<div class="rv-meta" style="margin:10px 0 0">👥 توقّع <b style="color:var(--pitch)">${predicted}</b> · ما توقّع <b style="color:var(--red)">${notPred}</b> <span style="color:var(--muted)">(من ${total})</span></div>`;
+  const whoBtn = `<button class="who-btn" onclick="showWho(${m.id},this)">👥 مين توقّع؟</button>`;
+  const whoPanel = `<div class="who-panel" id="who-${m.id}" style="display:none"></div>`;
+  const actions = started
+    ? `<div class="actions"><button class="save" onclick="saveResult(${m.id})">حفظ النتيجة</button>${m.manual?`<button class="dbl-btn" onclick="clearResult(${m.id})">إلغاء اليدوي</button>`:''}</div>`
+    : "";
+  return `<div class="card" data-m="${m.id}">
+    <div class="card-top"><span class="stage">${m.grp||m.matchday||""}</span><span class="kick" style="color:var(--muted)">${badge}</span></div>
+    <div class="teams">
+      <div class="team"><span class="flag">${i1.flag}</span><span class="tname">${i1.ar}</span></div>
+      ${mid}
+      <div class="team"><span class="flag">${i2.flag}</span><span class="tname">${i2.ar}</span></div>
+    </div>
+    ${countLine}
+    ${whoBtn}
+    ${whoPanel}
+    ${actions}
+  </div>`;
+}
+
+// أسماء من توقّع ومن لم يتوقّع لمباراة (أدمن)
+function showWho(mid, btn){
+  const box=document.getElementById("who-"+mid); if(!box) return;
+  if(box.style.display==="block"){ box.style.display="none"; btn.textContent="👥 مين توقّع؟"; return; }
+  const ids=new Set(adminPredByMatch[mid]||[]);
+  const did=adminPlayers.filter(p=>ids.has(p.id)).map(p=>p.name);
+  const didnt=adminPlayers.filter(p=>!ids.has(p.id)).map(p=>p.name);
+  const chips=(arr,cls)=> arr.length ? arr.map(n=>`<span class="who-chip ${cls}">${esc(n)}</span>`).join("") : `<span class="who-empty">${cls==="no"?"الكل توقّع 🎉":"لا أحد"}</span>`;
+  box.innerHTML=`<div class="who-col"><div class="who-h ok">✅ توقّعوا (${did.length})</div><div class="who-chips">${chips(did,"ok")}</div></div>
+    <div class="who-col"><div class="who-h no">❌ ما توقّعوا (${didnt.length})</div><div class="who-chips">${chips(didnt,"no")}</div></div>`;
+  box.style.display="block"; btn.textContent="إخفاء";
+}
+
+async function saveResult(mid){
+  const card=document.querySelector('.card[data-m="'+mid+'"]');
+  const s1=card.querySelector('.adm1').value, s2=card.querySelector('.adm2').value;
+  if(s1===""||s2===""){ toast("اكتب نتيجة الفريقين", true); return; }
+  try{
+    const r=await fetch("/api/result",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({token,matchId:mid,score1:parseInt(s1),score2:parseInt(s2)})});
+    const d=await r.json();
+    if(!r.ok){ toast(d.error||"تعذّر الحفظ", true); return; }
+    toast("✅ تم حفظ النتيجة واحتساب النقاط");
+    loadAdmin();
+  }catch(e){ toast("تعذّر الاتصال", true); }
+}
+
+async function clearResult(mid){
+  try{
+    const r=await fetch("/api/result",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({token,matchId:mid,clear:true})});
+    const d=await r.json();
+    if(!r.ok){ toast(d.error||"تعذّر", true); return; }
+    toast("أُلغيت النتيجة اليدوية");
+    loadAdmin();
+  }catch(e){ toast("تعذّر الاتصال", true); }
+}
+
+let tT;
+function toast(msg, isErr){
+  const t=document.getElementById("toast");
+  t.textContent=msg; t.classList.toggle("err",!!isErr); t.classList.add("show");
+  clearTimeout(tT); tT=setTimeout(()=>t.classList.remove("show"),2400);
+}
+
+// ثبات شريط التبويبات أعلى الصفحة + ظل خفيف عند الالتصاق (ربط عام مضمون)
+window.addEventListener("scroll", function(){
+  var el = document.querySelector(".tabs");
+  if (el) el.classList.toggle("stuck", el.getBoundingClientRect().top <= 53);
+}, { passive: true });
+
+// ─── سحب للتحديث (Pull to Refresh) ───
+(function(){
+  var ptr=document.getElementById("ptr");
+  var startY=0, pulling=false, dist=0, refreshing=false;
+  var THRESH=70;
+  function appOpen(){ var a=document.getElementById("appView"); return a && a.style.display!=="none"; }
+  function modalOpen(){ var m=document.getElementById("a2hs"); return m && m.style.display!=="none" && m.style.display!==""; }
+  function reset(){ ptr.classList.remove("refreshing"); ptr.style.transition="transform .2s,opacity .2s"; ptr.style.transform="translateX(-50%) translateY(-52px)"; ptr.style.opacity="0"; dist=0; }
+  function refreshActive(){
+    var on=function(id){ var e=document.getElementById(id); return e && e.classList.contains("on"); };
+    if(on("tabBoard")) loadBoard();
+    else if(on("tabStats")) loadStats();
+    else if(on("tabReveal")) loadReveal();
+    else if(on("tabAdmin")) loadAdmin();
+    else loadMatches();
+  }
+  window.addEventListener("touchstart", function(e){
+    if(refreshing || !appOpen() || modalOpen()) return;
+    if(window.scrollY>0) return;
+    startY=e.touches[0].clientY; pulling=true; dist=0;
+    ptr.style.transition="none";
+  }, { passive:true });
+  window.addEventListener("touchmove", function(e){
+    if(!pulling) return;
+    if(window.scrollY>0){ pulling=false; reset(); return; }
+    var dy=e.touches[0].clientY - startY;
+    if(dy<=0){ pulling=false; reset(); return; }
+    dist=Math.min(dy*0.5, 92);
+    ptr.style.transform="translateX(-50%) translateY("+dist+"px)";
+    ptr.style.opacity=String(Math.min(1, dist/THRESH));
+    ptr.querySelector(".ptr-spin").style.transform="rotate("+(dist*4)+"deg)";
+    if(dist>4 && e.cancelable) e.preventDefault();
+  }, { passive:false });
+  window.addEventListener("touchend", function(){
+    if(!pulling) return;
+    pulling=false;
+    if(dist>=THRESH){
+      refreshing=true;
+      ptr.classList.add("refreshing");
+      ptr.style.transition="transform .2s,opacity .2s";
+      ptr.style.transform="translateX(-50%) translateY(58px)";
+      ptr.style.opacity="1";
+      ptr.querySelector(".ptr-spin").style.transform="";
+      try{ refreshActive(); }catch(e){}
+      setTimeout(function(){ refreshing=false; reset(); }, 900);
+    } else { reset(); }
+  });
+})();
+
+// ─── التنقّل بين التبويبات بالسحب يمين/يسار ───
+(function(){
+  var sx=0, sy=0, tracking=false;
+  function appOpen(){ var a=document.getElementById("appView"); return a && a.style.display!=="none"; }
+  function modalOpen(){ var m=document.getElementById("a2hs"); return m && m.style.display!=="none" && m.style.display!==""; }
+  var TABS=[{k:"matches",t:"tabMatches",v:"matchesView"},{k:"board",t:"tabBoard",v:"boardView"},{k:"stats",t:"tabStats",v:"statsView"},{k:"reveal",t:"tabReveal",v:"revealView"},{k:"admin",t:"tabAdmin",v:"adminView"}];
+  function visibleTabs(){ return TABS.filter(function(x){ var e=document.getElementById(x.t); return e && e.style.display!=="none"; }); }
+  window.addEventListener("touchstart", function(e){
+    if(!appOpen() || modalOpen() || e.touches.length>1){ tracking=false; return; }
+    sx=e.touches[0].clientX; sy=e.touches[0].clientY; tracking=true;
+  }, { passive:true });
+  window.addEventListener("touchend", function(e){
+    if(!tracking) return; tracking=false;
+    var t=e.changedTouches[0]; var dx=t.clientX-sx, dy=t.clientY-sy;
+    if(Math.abs(dx)<60 || Math.abs(dx) < Math.abs(dy)*1.5) return;
+    var list=visibleTabs();
+    var cur=list.findIndex(function(x){ return document.getElementById(x.t).classList.contains("on"); });
+    if(cur<0) return;
+    var dir = dx<0 ? -1 : 1;             // عكس الاتجاه حسب طلب المستخدم
+    var ni=cur+dir;
+    if(ni<0 || ni>=list.length) return;
+    showTab(list[ni].k);
+    var v=document.getElementById(list[ni].v);
+    if(v){ v.style.animation="none"; void v.offsetWidth; v.style.animation=(dir>0?"swipeInNext":"swipeInPrev")+" .22s ease"; }
+    window.scrollTo(0,0);
+  }, { passive:true });
+})();
+</script>
+</body>
+</html>

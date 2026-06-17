@@ -1,0 +1,17 @@
+{
+  "name": "قروب موس — توقعات كأس العالم 2026",
+  "short_name": "قروب موس",
+  "description": "توقعات مباريات كأس العالم 2026 بين الشباب",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0f0d",
+  "theme_color": "#0a0f0d",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
