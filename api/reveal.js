@@ -1,6 +1,6 @@
 // GET /api/reveal?token=... → توقعات كل اللاعبين للمباريات التي بدأت فقط
 // مهم للخصوصية: لا تُكشف توقعات أي مباراة لم تبدأ بعد (منعًا للنسخ).
-import { db, readToken, json } from "./_lib.js";
+import { db, readToken, json, selectAll } from "./_lib.js";
 
 export default async function handler(req, res) {
   const user = readToken(req.query?.token || "");
@@ -11,8 +11,8 @@ export default async function handler(req, res) {
   const started = (matches || []).filter(m => new Date(m.kickoff) <= now); // بدأت أو انتهت فقط
   const startedIds = new Set(started.map(m => m.id));
 
-  const { data: preds } = await db.from("predictions")
-    .select("player_id,match_id,pred1,pred2,is_double,points,scored");
+  const preds = await selectAll("predictions",
+    "player_id,match_id,pred1,pred2,is_double,points,scored");   // كل التوقعات (بلا حد 1000)
   const { data: players } = await db.from("players").select("id,name");
   const nameById = Object.fromEntries((players || []).map(p => [p.id, p.name]));
 

@@ -1,5 +1,5 @@
 // GET /api/leaderboard → الترتيب العام + حركة الترتيب (▲▼ من آخر مباراة) + هل استخدم الدبل بالجولة الحالية
-import { db, json } from "./_lib.js";
+import { db, json, selectAll } from "./_lib.js";
 
 function roundKey(md) {
   const m = /Matchday\s+(\d+)/i.exec(md || "");
@@ -14,10 +14,10 @@ function roundKey(md) {
 }
 
 export default async function handler(req, res) {
-  const [{ data: players }, { data: matches }, { data: preds }] = await Promise.all([
+  const [{ data: players }, { data: matches }, preds] = await Promise.all([
     db.from("players").select("id,name"),
     db.from("matches").select("id,matchday,kickoff,status"),
-    db.from("predictions").select("player_id,match_id,points,is_double"),
+    selectAll("predictions", "player_id,match_id,points,is_double"),   // كل التوقعات (بلا حد 1000)
   ]);
   const P = players || [], M = matches || [], PR = preds || [];
   const now = Date.now();

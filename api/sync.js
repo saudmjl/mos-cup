@@ -1,6 +1,6 @@
 // GET /api/sync — يسحب الجدول والنتائج من openfootball ويحدّث قاعدة البيانات
 // ثم يعيد حساب نقاط كل التوقعات. يُستدعى تلقائيًا (cron) ويدويًا.
-import { db, json } from "./_lib.js";
+import { db, json, selectAll } from "./_lib.js";
 
 const SOURCE = "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json";
 const RESULTS_SOURCE = "https://worldcup26.ir/get/games"; // مصدر النتائج الفعلية
@@ -153,7 +153,7 @@ export default async function handler(req, res) {
       .select("id,score1,score2").eq("status", "finished");
     const finMap = Object.fromEntries((finished || []).map(f => [f.id, f]));
 
-    const { data: preds } = await db.from("predictions").select("*");
+    const preds = await selectAll("predictions", "*");   // كل التوقعات (بلا حد 1000)
     const updates = [];
     for (const p of preds || []) {
       const fm = finMap[p.match_id];

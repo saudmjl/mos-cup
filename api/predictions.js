@@ -1,7 +1,7 @@
 // /api/predictions
 //   GET  ?token=...           → مباريات + توقعات اللاعب
 //   POST { token, matchId, pred1, pred2, isDouble } → حفظ توقع
-import { db, readToken, json } from "./_lib.js";
+import { db, readToken, json, selectAll } from "./_lib.js";
 
 // مفتاح الجولة: دور المجموعات 3 جولات (Matchday 1-7 / 8-13 / 14-17)، ثم الأدوار الإقصائية
 function roundKey(md) {
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
 
     // عدد من توقّع لكل مباراة + إجمالي اللاعبين (للجميع — مجرد عدد، لا يكشف التوقعات)
     const { data: players } = await db.from("players").select("id");
-    const { data: allPreds } = await db.from("predictions").select("match_id");
+    const allPreds = await selectAll("predictions", "match_id");   // كل التوقعات (بلا حد 1000) لعدّ المشاركين بدقة
     const counts = {};
     for (const p of allPreds || []) counts[p.match_id] = (counts[p.match_id] || 0) + 1;
     const totalPlayers = (players || []).length;

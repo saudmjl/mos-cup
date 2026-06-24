@@ -1,5 +1,6 @@
 // منطق التذكيرات المشترك — يستخدمه /api/notify (cron/أدمن) و /api/sync (احتياطي عند النشاط)
 import { sendPush } from "./_push.js";
+import { selectAll } from "./_lib.js";
 
 export const WINDOW_H = 3; // نطاق التذكير التلقائي بالساعات
 
@@ -28,7 +29,7 @@ export async function remindForMatches(db, targets, { force = false } = {}) {
   const subsByPlayer = {};
   for (const s of subs) (subsByPlayer[s.player_id] = subsByPlayer[s.player_id] || []).push(s);
 
-  const { data: preds } = await db.from("predictions").select("player_id,match_id");
+  const preds = await selectAll("predictions", "player_id,match_id");   // كل التوقعات (بلا حد 1000)
   const predicted = new Set((preds || []).map((p) => p.player_id + ":" + p.match_id));
   const { data: logRows } = await db.from("push_log").select("player_id,match_id");
   const logged = new Set((logRows || []).map((p) => p.player_id + ":" + p.match_id));

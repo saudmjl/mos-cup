@@ -39,3 +39,24 @@ export function json(res, status, data) {
   res.status(status).setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(data));
 }
+
+// ── جلب كل الصفوف بالترقيم (يتجاوز حد 1000 صف الافتراضي في Supabase/PostgREST) ──
+// مهم جدًا: بدون هذا، أي قراءة كاملة لجدول التوقعات تُقصّ عند 1000 صف،
+// فتختفي توقعات اللاعبين الأحدث ولا تُحتسب نقاطها.
+// الاستخدام: await selectAll("predictions", "*", q => q.eq("match_id", 5))
+export async function selectAll(table, columns = "*", applyFilters) {
+  const pageSize = 1000;
+  let from = 0;
+  const all = [];
+  while (true) {
+    let q = db.from(table).select(columns).range(from, from + pageSize - 1);
+    if (applyFilters) q = applyFilters(q);
+    const { data, error } = await q;
+    if (error) throw error;
+    const batch = data || [];
+    all.push(...batch);
+    if (batch.length < pageSize) break;   // آخر صفحة
+    from += pageSize;
+  }
+  return all;
+}
