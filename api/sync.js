@@ -19,6 +19,9 @@ function normTeam(s) {
   return x;
 }
 function pairKey(a, b) { return [normTeam(a), normTeam(b)].sort().join("|"); }
+// أدوار إقصائية: تُحتسب على نتيجة 90 دقيقة فقط (حقل ft من openfootball)،
+// فنمنع مصادر النتائج الأخرى (تعطي نتيجة بعد الوقت الإضافي/الترجيح) من تغييرها.
+function isKnockout(md) { return /Round of|Quarter|Semi|third|Final/i.test(md || ""); }
 
 // قواعد النقاط (نسخة خادم): نتيجة دقيقة=50، فائز صح=20، غلط=0، الدبل يضاعف
 function calcPoints(p1, p2, s1, s2, dbl) {
@@ -106,6 +109,7 @@ export default async function handler(req, res) {
         if (!(hs >= 0) || !(as >= 0)) continue;
         const row = byPair[pairKey(g.home_team_name_en, g.away_team_name_en)];
         if (!row || row.manual) continue;                  // النتيجة اليدوية لها الأولوية
+        if (isKnockout(row.matchday)) continue;            // الإقصائي: نعتمد 90 دقيقة من openfootball فقط
         if (normTeam(g.home_team_name_en) === normTeam(row.team1)) { row.score1 = hs; row.score2 = as; }
         else { row.score1 = as; row.score2 = hs; }
         row.status = "finished";
@@ -137,6 +141,7 @@ export default async function handler(req, res) {
             if (!(hs >= 0) || !(as >= 0)) continue;
             const row = byPair[pairKey(home.team?.displayName, away.team?.displayName)];
             if (!row || row.manual) continue;                    // النتيجة اليدوية لها الأولوية
+            if (isKnockout(row.matchday)) continue;              // الإقصائي: نعتمد 90 دقيقة من openfootball فقط
             if (normTeam(home.team?.displayName) === normTeam(row.team1)) { row.score1 = hs; row.score2 = as; }
             else { row.score1 = as; row.score2 = hs; }
             row.status = "finished";
